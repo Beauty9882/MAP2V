@@ -14,7 +14,7 @@ class VGG(nn.Module):
                                           nn.Dropout(drop_ratio),
                                           nn.Flatten(),
                                           nn.Linear(512 * 7 * 7, feat_dim),
-                                          nn.BatchNorm1d(feat_dim))
+                                          nn.BatchNorm1d(feat_dim))      
 
     def forward(self, x):
         out = self.features(x)

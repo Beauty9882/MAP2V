@@ -6,7 +6,7 @@ import torch
 import torch.nn.functional as F
 from encoder.DuetFace.DuetFaceUtils import _dct_to_images
 
-
+    
 def cosine_similarity(x,w):
     x_norm = F.normalize(x,dim=1)
     w_norm = F.normalize(w,dim=1)

@@ -17,7 +17,7 @@ def fetch_stylegan(generator_type):
     stdict = torch.load(weight, map_location='cpu')
 
     # default parameters (https://github.com/rosinality/stylegan2-pytorch)
-    latent = 512
+    latent = 512    
     n_mlp = 8
     channel_multiplier = 2
 
