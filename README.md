@@ -25,13 +25,16 @@ Download pretrained privacy-preserving face recognition model and weights:
 
 [LFW](https://drive.google.com/file/d/1lckCEDPjOFAyJRjpdWnfseqI50_yEXAW/view)
 
-CelebA
+[CelebA](https://pan.baidu.com/s/1rr98LKIDl9e0URIr6yKMeQ?pwd=fd8o ) Fetch Code: fd8o
+
 
 After downloading, change the paths in `dataset/dataset_conf.yaml` and `weight` in `encoder/encoder_conf.yaml` accordingly.
 
 ## Download the latents from the constructed Prior Space:
 
-latents
+[latents](https://pan.baidu.com/s/1oiuMn5PzmE3vmyCVPLUtNw?pwd=onrr )  Fetch Code: onrr
+
+After downloading, change the paths in reconstruct.py when the initialization type selects the prior space(FFHQ).
 
 ## Usage
 

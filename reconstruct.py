@@ -134,8 +134,8 @@ def main(args):
         init_samples = torch.load('/media/Storage2/zh/face-privacy/MAP2V/latents/invert_w_256.pt', map_location='cpu')#70000 14 512
     elif args.init_type == 'random':
         init_samples = torch.load(f'{project_dir}/random_init_samples.pth', map_location='cpu')
-    elif args.init_type == 'cluster':
-        init_samples = torch.load('/media/Storage1/dong/random_init_cluster_samples_AdaFace_40000_512.pth', map_location='cpu')
+    # elif args.init_type == 'cluster':
+    #     init_samples = torch.load('/media/Storage1/dong/random_init_cluster_samples_AdaFace_40000_512.pth', map_location='cpu')
     
     if args.latent_space == 'Z':
         init_latents = init_samples['latents_z']
