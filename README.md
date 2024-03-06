@@ -3,7 +3,7 @@
 Validating Privacy-Preserving Face Recognition under a Minimum Assumption
 To be presented in the IEEE/CVF Conference on Computer Vision and Pattern Recognition 2024
 
-![Overview of the proposed Map2V. ](/imgs/2024-03-05/dUH92UK8fHdIBqOK.png)
+![Overview of the proposed Map2V. ](/imgs/pipeline.png)
 
 ## Abstract
 
@@ -33,9 +33,9 @@ After the setup is done, simply run reconstruct.py
 
 ## Experimental Results
 Privacy scores (%) against different validation systems on  LFW and CelebA dataset under 1k1c settings.
-![输入图片说明](/imgs/2024-03-05/vJEHs35aVKtKahAP.png)
+![输入图片说明](/imgs/results1.png)
 Examples of reconstructed faces for three SOTAs under 1k1c settings.
-![输入图片说明](/imgs/2024-03-05/ZIrLres63HPlu2cB.png)
+![输入图片说明](/imgs/results.png)
 
 #  Citation
 If you find this code useful in your research, please consider citing us.
