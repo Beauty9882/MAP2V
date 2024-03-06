@@ -24,8 +24,14 @@ Download pretrained privacy-preserving face recognition model and weights:
 ## Download LFW and CelebA datasets:
 
 [LFW](https://drive.google.com/file/d/1lckCEDPjOFAyJRjpdWnfseqI50_yEXAW/view)
+
 CelebA
+
 After downloading, change the paths in `dataset/dataset_conf.yaml` and `weight` in `encoder/encoder_conf.yaml` accordingly.
+
+## Download the latents from the constructed Prior Space:
+
+latents
 
 ## Usage
 
