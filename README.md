@@ -21,11 +21,12 @@ Download pretrained privacy-preserving face recognition model and weights:
 [DCTDP](https://github.com/Tencent/TFace/tree/master/recognition/tasks/dctdp)
 [PartialFace](https://github.com/Tencent/TFace)
 
-[all model weights]（https://pan.baidu.com/s/1OmW93OEEXHTxDrH_-gk1rw?pwd=2fb4 ）Fetch Code: 2fb4
-After downloading,  place all model weights in the directory ../MAP2V/encoder/pretrained and change the paths 
- in `encoder/encoder_conf.yaml`.
 
- 
+[all model weights]（https://pan.baidu.com/s/1OmW93OEEXHTxDrH_-gk1rw?pwd=2fb4 ） Fetch Code: 2fb4
+
+After downloading,  place all model weights in the directory  `encoder/pretrained` and change the paths in `encoder/encoder_conf.yaml`.
+
+If you need to validate your own PPFR model, you can update the model and weights to your content.
 
 ## Download LFW and CelebA datasets:
 
@@ -41,6 +42,11 @@ After downloading, change the paths in `dataset/dataset_conf.yaml`.
 [latents](https://pan.baidu.com/s/1oiuMn5PzmE3vmyCVPLUtNw?pwd=onrr )  Fetch Code: onrr
 
 After downloading, change the paths in reconstruct.py when the initialization type selects the prior space(FFHQ).
+
+## Download the weight of generator（here is stylegan） to generate face images:
+[generator](https://pan.baidu.com/s/1iLe4kgAwmA_BcN9bY0iZSA?pwd=yjng) Fetch Code: yjng
+
+After downloading,  place the weights in the directory  `generator/`.
 
 ## Usage
 

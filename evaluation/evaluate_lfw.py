@@ -267,10 +267,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--device_id', default=4, type=int, help='which gpu to use')
     parser.add_argument("--target_encoder", default= 'Due', type=str,
-                        help="target encoder architecture")#FaceNet ResNet50 VGGNet19 SwinTransformer AdaFace ArcFace MagFace ArcFace DCTDP Due PartialFace
+                        help="target encoder architecture",choices=['ArcFace', 'Due', 'DCTDP','PartialFace'])
     parser.add_argument('--align', default='mtcnn', type=str)
     parser.add_argument('--attack_img_dir', type=str, help='directory of attack images',
-                        default='/media/Storage2/zh/face-privacy/MAP2V/results/lfw-200/Due/0_random_W_500_400_0.1_16_top_5/attack_images')#Due PartialFace DCTDP
+                        default='/media/Storage2/zh/face-privacy/MAP2V/results/lfw-200/Due/0_random_W_500_400_0.1_16_top_5/attack_images')
     args = parser.parse_args()
     args.device = torch.device(f'cuda:{args.device_id}')
     main(args)

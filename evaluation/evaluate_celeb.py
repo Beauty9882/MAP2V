@@ -285,14 +285,12 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--device_id', default=0, type=int, help='which gpu to use')
-    parser.add_argument("--target_encoder", default= 'AdaFace', type=str,
-                        help="target encoder architecture")#FaceNet ResNet50 VGGNet19 SwinTransformer AdaFace ArcFace MagFace ArcFace DCTDP Due
+    parser.add_argument("--target_encoder", default= 'Due', type=str,
+                        help="target encoder architecture", choices=['ArcFace', 'Due', 'DCTDP','PartialFace'] )
     parser.add_argument('--align', default='mtcnn', type=str)
-    parser.add_argument('--dataset', default='celeba', type=str, help='target dataset to attack') #we have:lfw-200、celeba
-    # parser.add_argument('--original_img_dir', type=str, help='directory of attack images',
-    #                     default='/media/Storage2/zh/face-privacy/Black-box-Face-Reconstruction_Hojin/data/celeba')#Due PartialFace DCTDP
-    parser.add_argument('--attack_img_dir', type=str, help='directory of attack images',
-                        default='/media/Storage2/zh/face-privacy/Black-box-Face-Reconstruction_Hojin/Ablation_1107_new/True/celeba/Due/random_W_False_1/attack_images')#Due PartialFace DCTDP
+    parser.add_argument('--dataset', default='celeba', type=str, help='target dataset to attack') 
+    parser.add_argument('--attack_img_dir', type=str, help='directory of attack images from Due PartialFace DCTDP',
+                        default='/media/Storage2/zh/face-privacy/Black-box-Face-Reconstruction_Hojin/Ablation_1107_new/True/celeba/Due/random_W_False_1/attack_images')
 
     
     args = parser.parse_args()
