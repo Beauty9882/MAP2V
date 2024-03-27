@@ -53,24 +53,20 @@ DCTDP:
     align: mtcnn
     
 AdaFace:
-    weight: /media/Storage2/zh/face-privacy/TFace-master/recognition/AdaFace/pretrained/adaface_ir50_ms1mv2.ckpt
+    weight: /media/Storage2/zh/face-privacy/MAP2V/encoder/pretrained/adaface_ir50_ms1mv2.ckpt
     align: mtcnn
     img_size : 112
 
-ArcFace:
-   weight: /media/Storage1/Black-box-Face-Reconstruction-main1/arcface/resnet18_110.pth
-   align: mtcnn
-   img_size: 112
 
 MagFace:
-    resume: /media/Storage2/zh/face-privacy/TFace-master/recognition/MagFace/magface_iresnet50_MS1MV2_ddp_fp32.pth
+    resume: /media/Storage2/zh/face-privacy/MAP2V/encoder/pretrained//magface_iresnet50_MS1MV2_ddp_fp32.pth
     align: mtcnn
     img_size: 112
     embedding_size: 512
     arch: iresnet50
 
 ArcFace:
-    weight: /media/Storage1/Black-box-Face-Reconstruction-main1/InsightFace_Pytorch/model_ir_se50.pth
+    weight: /media/Storage2/zh/face-privacy/MAP2V/encoder/pretrained/InsightFace_Pytorch/model_ir_se50.pth
     align: mtcnn
     img_size: 112
 

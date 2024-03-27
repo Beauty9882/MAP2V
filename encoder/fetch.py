@@ -71,20 +71,20 @@ def fetch_encoder(encoder_type, device = 'cuda:0', pretrained=True,
     
     elif encoder_type == 'Due':
         # it loads two models: landmark model and duetface model 
-        landmark_pth = '/media/Storage2/zh/face-privacy/TFace-master/recognition/tasks/duetface/checkpoint.pth.tar'
+        landmark_pth = '/media/Storage2/zh/face-privacy/MAP2V/encoder/pretrained/duetface_landmark_checkpoint.pth.tar'
         inference_model = PFLDInference()
         inference_model_dict = torch.load(landmark_pth, map_location='cpu')
         inference_model.load_state_dict(inference_model_dict['pfld_backbone'])
 
         encoder = DuetFaceModel(num_sub_channels=30, len_features=512, len_sub_features=512,landmark_inference=inference_model, device = device)
-        pth_files = ["/media/Storage2/zh/face-privacy/TFace-master/recognition/ckpt_train/Backbone_Epoch_24_checkpoint.pth", "/media/Storage2/zh/face-privacy/TFace-master/recognition/ckpt_train/HEAD_Epoch_24_Split_2_checkpoint.pth", "/media/Storage2/zh/face-privacy/TFace-master/recognition/ckpt_train/META_Epoch_24_checkpoint.pth"]
+        pth_files = ["/media/Storage2/zh/face-privacy/MAP2V/encoder/pretrained/duetface_Backbone_Epoch_24_checkpoint.pth", "/media/Storage2/zh/face-privacy//MAP2V/encoder/pretrained/duetface_HEAD_Epoch_24_Split_2_checkpoint.pth", "/media/Storage2/zh/face-privacy//MAP2V/encoder/pretrained/duetface_META_Epoch_24_checkpoint.pth"]
         for pth_file in pth_files:
             state_dict = torch.load(pth_file, map_location='cpu')
             encoder.load_state_dict(state_dict,strict=False)
-            
+   
     elif encoder_type == 'PartialFace':
         encoder = PartialFaceModel()
-        pth_files = ["/media/Storage2/zh/face-privacy/Black-box-Face-Reconstruction_Hojin/encoder/PartialFace/ckpt/Backbone_Epoch_40_checkpoint.pth", "/media/Storage2/zh/face-privacy/Black-box-Face-Reconstruction_Hojin/encoder/PartialFace/ckpt/HEAD_Epoch_40_Split_0_checkpoint.pth", "/media/Storage2/zh/face-privacy/Black-box-Face-Reconstruction_Hojin/encoder/PartialFace/ckpt/META_Epoch_40_checkpoint.pth"]
+        pth_files = ["/media/Storage2/zh/face-privacy/MAP2V/encoder/pretrained/partialface_Backbone_Epoch_40_checkpoint.pth", "/media/Storage2/zh/face-privacy/MAP2V/encoder/pretrained/partialface_HEAD_Epoch_40_Split_0_checkpoint.pth", "/media/Storage2/zh/face-privacy/MAP2V/encoder/pretrained/partialface_META_Epoch_40_checkpoint.pth"]
         for pth_file in pth_files:
             state_dict = torch.load(pth_file, map_location='cpu')
             encoder.load_state_dict(state_dict, strict=False)

@@ -1,8 +1,8 @@
 lfw:
-    image_dir: '/media/Storage2/zh/face-privacy/MAP2V/data/lfw'
+    image_dir: '/media/Storage2/zh/face-privacy/MAP2V/dataset/lfw'
     targets_txt: '/media/Storage2/zh/face-privacy/MAP2V/dataset/lfw_targets.txt'
 
 lfw-200:
-    image_dir: '/media/Storage2/zh/face-privacy/MAP2V/data/lfw'
+    image_dir: '/media/Storage2/zh/face-privacy/MAP2V/dataset/lfw'
     targets_txt: '/media/Storage2/zh/face-privacy/MAP2V/dataset/lfw-200_targets.txt'
 

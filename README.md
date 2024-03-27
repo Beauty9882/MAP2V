@@ -21,6 +21,12 @@ Download pretrained privacy-preserving face recognition model and weights:
 [DCTDP](https://github.com/Tencent/TFace/tree/master/recognition/tasks/dctdp)
 [PartialFace](https://github.com/Tencent/TFace)
 
+[all model weights]（https://pan.baidu.com/s/1OmW93OEEXHTxDrH_-gk1rw?pwd=2fb4 ）Fetch Code: 2fb4
+After downloading,  place all model weights in the directory ../MAP2V/encoder/pretrained and change the paths 
+ in `encoder/encoder_conf.yaml`.
+
+ 
+
 ## Download LFW and CelebA datasets:
 
 [LFW](https://drive.google.com/file/d/1lckCEDPjOFAyJRjpdWnfseqI50_yEXAW/view)
@@ -28,7 +34,7 @@ Download pretrained privacy-preserving face recognition model and weights:
 [CelebA](https://pan.baidu.com/s/1rr98LKIDl9e0URIr6yKMeQ?pwd=fd8o ) Fetch Code: fd8o
 
 
-After downloading, change the paths in `dataset/dataset_conf.yaml` and `weight` in `encoder/encoder_conf.yaml` accordingly.
+After downloading, change the paths in `dataset/dataset_conf.yaml`.
 
 ## Download the latents from the constructed Prior Space:
 
