@@ -22,7 +22,7 @@ Download pretrained privacy-preserving face recognition model and weights:
 [PartialFace](https://github.com/Tencent/TFace)
 
 
-[all model weights]（https://pan.baidu.com/s/1OmW93OEEXHTxDrH_-gk1rw?pwd=2fb4 ） Fetch Code: 2fb4
+[all_model_weights]（https://pan.baidu.com/s/1OmW93OEEXHTxDrH_-gk1rw?pwd=2fb4 ） Fetch Code: 2fb4
 
 After downloading,  place all model weights in the directory  `encoder/pretrained` and change the paths in `encoder/encoder_conf.yaml`.
 
