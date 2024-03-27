@@ -41,7 +41,7 @@ After downloading, change the paths in `dataset/dataset_conf.yaml`.
 
 [latents](https://pan.baidu.com/s/1oiuMn5PzmE3vmyCVPLUtNw?pwd=onrr )  Fetch Code: onrr
 
-After downloading, change the paths in reconstruct.py when the initialization type selects the prior space(FFHQ).
+After downloading, place the initial latent spaces in `latents/` and change the paths in reconstruct.py when the initialization type selects the prior space(FFHQ).
 
 ## Download the weight of generator（here is stylegan） to generate face images:
 [generator](https://pan.baidu.com/s/1iLe4kgAwmA_BcN9bY0iZSA?pwd=yjng) Fetch Code: yjng
@@ -50,7 +50,7 @@ After downloading,  place the weights in the directory  `generator/`.
 
 ## Usage
 
-After the setup is done, simply run reconstruct.py
+After the setup is done, simply run validate.py and change the path args.save_dir to save results. 
 
 ## Experimental Results
 Privacy scores (%) against different validation systems on  LFW and CelebA dataset under 1k1c settings.

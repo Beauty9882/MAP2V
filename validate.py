@@ -95,7 +95,7 @@ def main(args):
 
     # iteration for visualization
     N = args.num_iters
-    log_iter = [int(N * 0.1), int(N * 0.2),  int(N * 0.3),int(N * 0.4), int(N * 0.5), int(N * 0.6),  int(N * 0.7), int(N * 0.8),int(N * 0.9), N]  # logging at 10%, 20%, 40%, 100%
+    log_iter = [int(N * 0.1), int(N * 0.2), int(N * 0.4), int(N * 0.8), N]  # logging at 10%, 20%, 40%, 80%, 100%
     writer = SummaryWriter(log_dir=args.save_dir)
 
 
@@ -109,8 +109,6 @@ def main(args):
         if name == args.enc_tgt and not args.blackbox:
              if args.enc_tgt =='AdaFace':
                 enc = WhiteboxEncoder4Adaface(enc, img_size=enc.img_size).to(args.device)
-            #  elif args.enc_tgt =='Due':
-            #      enc = WhiteboxEncoder4Due(enc, img_size=enc.img_size).to(args.device)
              else:
                 enc = WhiteboxEncoder(enc, img_size=enc.img_size).to(args.device)
         else:
@@ -135,7 +133,7 @@ def main(args):
     elif args.init_type == 'random':
         init_samples = torch.load(f'{project_dir}/random_init_samples.pth', map_location='cpu')
     # elif args.init_type == 'cluster':
-    #     init_samples = torch.load('/media/Storage1/dong/random_init_cluster_samples_AdaFace_40000_512.pth', map_location='cpu')
+    #     init_samples = torch.load('/media/Storage2/zh/face-privacy/MAP2V/latents/random_init_cluster_samples_AdaFace_40000_512.pth', map_location='cpu')
     
     if args.latent_space == 'Z':
         init_latents = init_samples['latents_z']
@@ -177,7 +175,7 @@ def main(args):
         ])
 
 
-    # reconstruct
+    # reconstruct target images for validating privacy
     for cnt in range(num_targets):
         target = targets[cnt]
         imgdir = imgdirs[cnt]
@@ -201,11 +199,10 @@ def main(args):
             # initialize latent
             if args.fixed_init:
                 args.init_latent = stgan.generator.mean_latent(int(1e4)).clone()
-                # stgan.generator.mean_latent(int(1e4))*0.8
             else:  # ensemble init.
                 cosine = cosine_similarity(enc_dict[args.enc_tgt]['target'], init_feats).squeeze()
                 _, idx = cosine.topk(args.topk)
-                args.init_latent = init_latents[idx].mean(dim=0, keepdim=True)  # latent ensembling
+                args.init_latent = init_latents[idx].mean(dim=0, keepdim=True) 
 
             init_image = stgan(args.init_latent)#1 3 192 192
             for name in args.encoder_list:
@@ -258,7 +255,7 @@ def main(args):
             lr = optimizer.param_groups[0]['lr']
             writer.add_scalar("lr", lr, i + 1)
 
-            if i in log_iter:  # visualization at 10%, 20%, 40%, 100%
+            if i in log_iter:  # visualization at 10%, 20%, 40%, 80%, 100%
                 with torch.no_grad():
                     img_gen, ltn_gen = stgan(latent, args.init_latent, return_latents=True)
                 img_gen = resize(img_gen).cpu()
@@ -317,17 +314,16 @@ if __name__ == "__main__":
     parser.add_argument('--gamma', default=0.1, type=float)
 
     # initialization parameters
-    parser.add_argument('--fixed_init', default=False, type=str2bool, help='use fixed initialization') # must be false, man!
+    parser.add_argument('--fixed_init', default=False, type=str2bool, help='use fixed initialization')
     parser.add_argument('--num_inits', default=500, type=int, help='number of init latents')
     parser.add_argument('--topk', default=5, type=int, help='topk for latent ensembling')
 
     # target dataset & encoder
-    parser.add_argument('--dataset', default='lfw-200', type=str, help='target dataset to attack') #we have:lfw-200、celeba cfp-fp-200-F
+    parser.add_argument('--dataset', default='lfw-200', type=str, help='target dataset to attack') 
     parser.add_argument('--enc_tgt', default='Due', type=str, help='target encoder type')
     parser.add_argument('--blackbox', default=True, type=str2bool, help='set target encoder as a blackbox')
     parser.add_argument('--encoder_list', default=['Due'], type=list,
-                        help='encoders for measuring cosine similarity during optimization') #Due PartialFace DCTDP  ArcFace MagFace AdaFace 
-
+                        help='encoders for measuring cosine similarity during optimization', choices=['ArcFace','MagFace', 'AdaFace','Due', 'DCTDP','PartialFace']) 
     # StyleGAN & alignment model parameters - need not change
     parser.add_argument('--resolution', default=256, type=int, help='StyleGAN output resolution')
     parser.add_argument('--batch_size', default=170, type=int, help='StyleGAN batch size. Reduce to avoid OOM')
