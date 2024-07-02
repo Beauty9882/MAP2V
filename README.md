@@ -21,7 +21,8 @@ Download pretrained privacy-preserving face recognition model and weights:
 [DCTDP](https://github.com/Tencent/TFace/tree/master/recognition/tasks/dctdp)
 [PartialFace](https://github.com/Tencent/TFace)
 
-[all_model_weights](https://pan.baidu.com/s/1OmW93OEEXHTxDrH_-gk1rw?pwd=2fb4) Fetch Code: 2fb4
+[all_model_weights] (https://pan.baidu.com/s/1OmW93OEEXHTxDrH_-gk1rw?pwd=2fb4) Fetch Code: 2fb4
+or google drive: https://drive.google.com/drive/folders/1SWxALbbZ8gB0Kt8-ADK-_8vg1GVxFwpu?usp=sharing
 
 After downloading,  place all model weights in the directory  `encoder/pretrained` and change the paths in `encoder/encoder_conf.yaml`.
 
